@@ -181,7 +181,7 @@ function initAITypeSelector() {
 }
 
 // ── AI generate button (calls Flask backend) ───────────────────────────
-const API_BASE = "http://127.0.0.1:5000/api";
+const API_BASE = (window.__API_BASE__) || "http://127.0.0.1:5000/api";
 
 async function apiGenerateImage(prompt, provider, aspectRatio) {
   const res = await fetch(`${API_BASE}/generate-image`, {
