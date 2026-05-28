@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AuraForge - Social Media Content Studio</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Sidebar Controls -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo-glow"></div>
+        <span class="logo-text">Aura<span>Forge</span></span>
+      </div>
+      
+      <div class="control-groups-container">
+        
+        <!-- Tab Navigation -->
+        <div class="tabs-nav">
+          <button class="tab-btn active" data-tab="editor">Design Studio</button>
+          <button class="tab-btn" data-tab="ai-hub">AI Generator</button>
+        </div>
+        
+        <!-- EDITOR TAB CONTENT -->
+        <div class="tab-content active" id="editor-tab">
+          
+          <!-- Template Picker -->
+          <div class="control-group">
+            <h3>Layout Template</h3>
+            <div class="template-grid">
+              <button class="tmpl-btn active" data-template="quote">
+                <span class="icon">“</span>
+                <span class="lbl">Quote Card</span>
+              </button>
+              <button class="tmpl-btn" data-template="tip">
+                <span class="icon">💡</span>
+                <span class="lbl">Tech Tip</span>
+              </button>
+              <button class="tmpl-btn" data-template="code">
+                <span class="icon">&lt;/&gt;</span>
+                <span class="lbl">Code Frame</span>
+              </button>
+              <button class="tmpl-btn" data-template="default">
+                <span class="icon">✨</span>
+                <span class="lbl">Simple Text</span>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Size Selector -->
+          <div class="control-group">
+            <h3>Aspect Ratio</h3>
+            <div class="btn-group">
+              <button class="size-btn active" data-ratio="1:1" data-w="1080" data-h="1080">1:1 Square (Feed)</button>
+              <button class="size-btn" data-ratio="4:5" data-w="1080" data-h="1350">4:5 Portrait</button>
+              <button class="size-btn" data-ratio="9:16" data-w="1080" data-h="1920">9:16 Vertical (Story)</button>
+            </div>
+          </div>
+
+          <!-- Text Inputs -->
+          <div class="control-group">
+            <h3>Content Editor</h3>
+            <div class="input-item">
+              <label for="post-title">Headline / Author / Filename</label>
+              <input type="text" id="post-title" value="Steve Jobs">
+            </div>
+            <div class="input-item">
+              <label for="post-body">Body Text / Quote / Code Snippet</label>
+              <textarea id="post-body" rows="4">Design is not just what it looks like and feels like. Design is how it works.</textarea>
+            </div>
+            <div class="input-item">
+              <label for="post-watermark">Watermark Handle</label>
+              <input type="text" id="post-watermark" value="@auraforge_studio">
+            </div>
+          </div>
+          
+          <!-- Styling & Card Customization -->
+          <div class="control-group">
+            <h3>Card Container Styling</h3>
+            <div class="checkbox-item">
+              <input type="checkbox" id="use-card" checked>
+              <label for="use-card">Enable Frosted Glass Card (Uncheck for 'No Card')</label>
+            </div>
+            <div class="input-item">
+              <label for="card-opacity">Card Opacity (%)</label>
+              <input type="range" id="card-opacity" min="0" max="100" value="15">
+            </div>
+            <div class="input-item">
+              <label for="card-color">Card Tint Color</label>
+              <input type="color" id="card-color" value="#ffffff">
+            </div>
+          </div>
+
+          <!-- Background Controls -->
+          <div class="control-group">
+            <h3>Background Customization</h3>
+            <div class="gradient-presets">
+              <button class="grad-preset active" data-start="#1a1c29" data-end="#0c0d14" style="background: linear-gradient(135deg, #1a1c29, #0c0d14);"></button>
+              <button class="grad-preset" data-start="#FF3B30" data-end="#AF0A0F" style="background: linear-gradient(135deg, #FF3B30, #AF0A0F);"></button>
+              <button class="grad-preset" data-start="#8E2DE2" data-end="#4A00E0" style="background: linear-gradient(135deg, #8E2DE2, #4A00E0);"></button>
+              <button class="grad-preset" data-start="#11998e" data-end="#38ef7d" style="background: linear-gradient(135deg, #11998e, #38ef7d);"></button>
+              <button class="grad-preset" data-start="#f2709c" data-end="#ff9472" style="background: linear-gradient(135deg, #f2709c, #ff9472);"></button>
+              <button class="grad-preset" data-start="#0f2027" data-end="#203a43" style="background: linear-gradient(135deg, #0f2027, #203a43);"></button>
+            </div>
+            
+            <div class="input-grid">
+              <div class="input-item">
+                <label for="bg-start">Start Color</label>
+                <input type="color" id="bg-start" value="#1a1c29">
+              </div>
+              <div class="input-item">
+                <label for="bg-end">End Color</label>
+                <input type="color" id="bg-end" value="#0c0d14">
+              </div>
+            </div>
+
+            <div class="input-item">
+              <label for="bg-overlay">Image Overlay Opacity (%)</label>
+              <input type="range" id="bg-overlay" min="0" max="100" value="30">
+            </div>
+
+            <div class="input-item">
+              <label>Custom Image Background</label>
+              <div class="file-upload-btn">
+                <span>Upload Custom BG Image</span>
+                <input type="file" id="bg-upload" accept="image/*">
+              </div>
+            </div>
+          <!-- Script Helper for rendering -->
+          <div class="control-group">
+            <h3>Layout CLI Helper</h3>
+            <p class="description-p">Run this python script in your terminal to render this post programmatically:</p>
+            <div class="terminal-card">
+              <pre id="cli-post-display">python3 engine/create_post.py --template quote --title "Steve Jobs" --body "Design is how it works." --ratio 1:1 --output posts/my_post.png</pre>
+              <button class="copy-code-btn" onclick="copyCLIPostCmd()">Copy</button>
+            </div>
+          </div>
+        </div>
+          
+        </div>
+        
+        <!-- AI GENERATOR TAB CONTENT -->
+        <div class="tab-content" id="ai-hub-tab">
+          <div class="control-group">
+            <h3>AI Creation Center</h3>
+            <p class="description-p">Generate ultra-premium stock backdrops or video loops using the official Google Cloud Nano Banana prompting guide principles (conversational briefs over keyword tag-soups).</p>
+            
+            <!-- Prompt Parameter Builder -->
+            <div class="input-item">
+              <label for="ai-subject">Core Subject / Scene Concept</label>
+              <input type="text" id="ai-subject" placeholder="e.g. liquid metallic flowing waves, misty redwood forest">
+            </div>
+
+            <div class="input-grid">
+              <div class="input-item">
+                <label for="ai-style">Visual Style</label>
+                <select id="ai-style">
+                  <option value="">(None - Custom)</option>
+                  <option value="cinematic photorealistic, 8k resolution, highly detailed 3D render">Cinematic 3D</option>
+                  <option value="modern 3D glassmorphism, translucent frosted glass layers, glossy reflection">Frosted Glassmorphism</option>
+                  <option value="cyberpunk tech aesthetic, glowing neon grid patterns, dark cybernet core">Cyberpunk / Tech</option>
+                  <option value="3D chromatic liquid metal flows, smooth fluid motion, metallic texture reflections">Liquid Metal Flow</option>
+                  <option value="soft pastel minimalist gradient, warm cozy vaporwave aesthetic">Pastel Minimalist</option>
+                  <option value="bold retro brutalism style, high contrast poster design, raw texture grain">Retro Brutalism</option>
+                </select>
+              </div>
+              <div class="input-item">
+                <label for="ai-lighting">Lighting Style</label>
+                <select id="ai-lighting">
+                  <option value="">(None - Default)</option>
+                  <option value="soft studio lighting, diffused realistic shadows">Soft Studio Light</option>
+                  <option value="warm volumetric golden hour sunlight, sun rays scattering">Golden Hour</option>
+                  <option value="vibrant neon rim lighting, glowing edges, cyber punk colors">Neon Rim Light</option>
+                  <option value="low-key dramatic lighting, high contrast, moody shadows, cinema look">Moody High Contrast</option>
+                  <option value="soft bioluminescent glow, organic internal light emitting">Bioluminescent Glow</option>
+                  <option value="strong backlighting, glowing silhouette contours">Silhouette Backlight</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="input-item">
+              <label for="ai-angle">Camera Motion / Angle</label>
+              <select id="ai-angle">
+                <option value="">(None - Static Image)</option>
+                <option value="slow cinematic horizontal panning shot">Horizontal Pan</option>
+                <option value="smooth dynamic slow zoom-in motion">Slow Zoom-In</option>
+                <option value="smooth slow zoom-out reveal camera motion">Slow Zoom-Out</option>
+                <option value="cinematic 360-degree orbiting camera rotation shot">360 Orbit Shot</option>
+                <option value="macro close-up detail shot focusing on intricate patterns">Macro Close-Up</option>
+                <option value="majestic high-altitude drone aerial flyover shot">Drone Aerial Flyover</option>
+              </select>
+            </div>
+
+            <!-- Veo 3.1 Video Prompts Parameters -->
+            <div class="input-item" id="ai-action-container">
+              <label for="ai-action">Action / Movement (Video Only)</label>
+              <input type="text" id="ai-action" placeholder="e.g. waves flowing slowly, leaves rustling in wind">
+            </div>
+
+            <div class="input-item" id="ai-audio-container">
+              <label for="ai-audio">Audio Cues / SFX (Video Only)</label>
+              <input type="text" id="ai-audio" placeholder="e.g. SFX: ocean waves crashing, soft wind blowing">
+            </div>
+
+            <div class="input-item">
+              <label for="ai-prompt">Final Generated Prompt (Editable)</label>
+              <textarea id="ai-prompt" rows="4" placeholder="Select parameters above to build the prompt..."></textarea>
+            </div>
+            
+            <div class="input-item">
+              <label>Asset Format</label>
+              <div class="btn-group font-sizes">
+                <button class="ai-type-btn active" data-type="image">AI Backdrop (Image)</button>
+                <button class="ai-type-btn" data-type="video">AI B-Roll (Video Loop)</button>
+              </div>
+            </div>
+            
+            <div class="input-item">
+              <label for="ai-provider">API Provider</label>
+              <select id="ai-provider">
+                <option value="replicate">Replicate (Flux / Hunyuan)</option>
+                <option value="huggingface">Hugging Face (Free FLUX.1-schnell)</option>
+                <option value="openai">OpenAI (DALL-E 3)</option>
+              </select>
+            </div>
+
+            <div class="info-box note">
+              <strong>Notice:</strong> Running AI generation requires configuring your API key in the <code>.env</code> file. The agent will execute this command in the background for you.
+            </div>
+
+            <button class="action-btn run-ai-btn" id="generate-ai-btn">Generate AI Asset</button>
+          </div>
+          
+          <div class="control-group">
+            <h3>Command Helper</h3>
+            <p class="description-p">Copy these scripts to trigger automation from your command line:</p>
+            <div class="terminal-card">
+              <pre id="cli-cmd-display">python3 engine/ai_generator.py --prompt "liquid gold flowing waves" --type image --output ai_assets/gold.png</pre>
+              <button class="copy-code-btn" onclick="copyCLICmd()">Copy</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+      <!-- Footer Actions -->
+      <div class="sidebar-footer">
+        <button class="action-btn download-btn" id="download-png-btn">Download PNG Image</button>
+      </div>
+    </aside>
+    
+    <!-- Canvas Preview Panel -->
+    <main class="preview-panel">
+      <div class="top-nav">
+        <h1>Canvas Live Workspace</h1>
+        <div class="status-indicator">
+          <span class="dot"></span>
+          <span>Ready</span>
+        </div>
+      </div>
+      
+      <div class="workspace-area">
+        <div class="canvas-wrapper" id="canvas-container">
+          <!-- The rendered canvas inside an elegant responsive viewport -->
+          <canvas id="studio-canvas"></canvas>
+        </div>
+      </div>
+
+      <!-- Action panel / notifications -->
+      <div class="action-bar-bottom">
+        <div class="shortcut-tip">
+          <span class="badge">💡 Tip</span> Copying & Pasting text automatically redraws in real time.
+        </div>
+        <div class="system-alerts">
+          <span class="warning-badge" id="ffmpeg-badge" style="color:var(--success-color); background-color:rgba(16, 185, 129, 0.08); border:1px solid rgba(16, 185, 129, 0.2);">FFmpeg status: Active</span>
+          <span class="warning-badge" id="render-badge" style="display:none; color:var(--danger-color); background-color:rgba(239, 68, 68, 0.08); border:1px solid rgba(239, 68, 68, 0.2);">⚠ Render error</span>
+          <button class="fix-btn" id="fix-ffmpeg-btn">Details</button>
+        </div>
+      </div>
+    </main>
+    
+  </div>
+
+  <!-- Modal for system alerts / instructions -->
+  <div class="modal-overlay" id="alert-modal">
+    <div class="modal-card">
+      <h2 id="modal-title">System Alert</h2>
+      <div class="modal-body" id="modal-body">
+        <!-- populated dynamically -->
+      </div>
+      <button class="modal-close-btn" id="modal-close">Close</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
